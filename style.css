@@ -1,0 +1,43 @@
+.rectangle-with-triangle {
+  width: 200px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  overflow: hidden; /* コンテンツがはみ出さないようにする */
+}
+
+.rectangle-with-triangle::before,
+.rectangle-with-triangle::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.rectangle-with-triangle::before {
+  top: 0;
+  right: 0;
+  border-width: 0 0 100px 100px; /* 上部の三角形のサイズを調整 */
+  border-bottom-color: red; /* 上部の三角形の色を指定 */
+}
+
+.rectangle-with-triangle::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 0 100px 100px; /* 下部の三角形のサイズを調整 */
+  border-top-color: red; /* 下部の三角形の色を指定 */
+  transform: rotate(180deg); /* 下部の三角形を反転させる */
+}
+
+.rectangle-with-triangle::before,
+.rectangle-with-triangle::after {
+  border-radius: 0 0 50px 0; /* 先端部分を丸める */
+}
+
+#my-element {
+  width: 132px;
+  height: 36px;
+  background: linear-gradient(90deg, #17A4E1 0%, #09D0F1 100%);
+}
